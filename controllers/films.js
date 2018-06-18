@@ -16,6 +16,12 @@ filmRouter.put('/:id', function(req, res){
   res.json({data: films})
 });
 
+filmRouter.delete('/:id', function(req, res){
+  const index = req.params.id;
+  films.splice([index], 1);
+  res.json({data: films})
+});
+
 
 filmRouter.get('/', function(req, res){
   res.json(films);
