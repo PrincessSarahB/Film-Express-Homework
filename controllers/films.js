@@ -5,9 +5,10 @@ const Review = require('../models/review');
 const express = require('express');
 const filmRouter = new express.Router();
 
-filmRouter.post('/:id/newReview', function(req, res, film){
+filmRouter.post('/reviews/:id', function(req, res){
   const index = req.params.id;
   const newReview = new Review(req.body);
+  const film = films[index];
   film.addReview(newReview);
   res.json({data: films})
 })
@@ -37,7 +38,7 @@ filmRouter.get('/', function(req, res){
 });
 
 filmRouter.post('/', function(req, res){
-  const newFilm = new Film (req.body);
+  const newFilm = new Film(req.body);
   films.push(newFilm);
   res.json({data: films});
 });
