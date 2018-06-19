@@ -4,6 +4,6 @@ const router = new express.Router();
 router.use('/films', require('./films.js'))
 
 router.get('/', function(req, res) {
-  res.json({ data: 'Film Stuff'});
+  res.json('Film Stuff');
 });
 module.exports = router;
